@@ -44,12 +44,12 @@ app.post("/musicians/:musicianId/instruments", async (req, res, next) => {
 			},
 		},
 	});
-	console.log("********", instruments);
+	// console.log("********", instruments);
 	const musician = await Musician.findByPk(req.params.musicianId);
-	console.log("------", musician);
+	// console.log("------", musician);
 	await musician.addInstruments(instruments);
 	const ins = await musician.getInstruments();
-	console.log("//////////", ins);
+	// console.log("//////////", ins);
 	res.json({ ...musician, instruments: ins });
 });
 
